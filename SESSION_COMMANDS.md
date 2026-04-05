@@ -6,11 +6,11 @@
 # across all agency projects. Reference this file from CLAUDE.md and
 # .cursorrules in every project repo.
 #
-# To trigger: type /closed, /pickup, or /status in any Claude Code session.
+# To trigger: type !!closed, !!pickup, or !!status in any Claude Code session.
 
 ---
 
-## /closed — Close the Session
+## !!closed — Close the Session
 
 **Purpose:** Wrap up the current session. Extract what happened, write it to
 the project files, commit everything, and confirm capture before closing.
@@ -103,7 +103,7 @@ Next session starts with: [the single next action]
 
 ---
 
-## /pickup — Start the Session
+## !!pickup — Start the Session
 
 **Purpose:** Orient quickly at the start of a new session. Read the project
 state, deliver a standup-style briefing, and ask what to work on today.
@@ -132,7 +132,7 @@ If any file doesn't exist:
 Output in this exact format:
 
 ```
-/pickup — [PROJECT NAME]
+!!pickup — [PROJECT NAME]
 Last updated: [date from ACTIVE_PROJECT.md]
 
 LAST SESSION
@@ -167,7 +167,7 @@ Then wait for the user's answer before doing anything else.
 
 ---
 
-## /status — Company Dashboard
+## !!status — Company Dashboard
 
 **Purpose:** Get a cross-project view of everything active at HardcoreAI.
 Shows all project states, what needs attention, and a focus recommendation.
@@ -198,7 +198,7 @@ offer to help set up context files for any projects the user names.
 Output in this format:
 
 ```
-/status — HardcoreAI Dashboard
+!!status — HardcoreAI Dashboard
 [TODAY'S DATE]
 
 COMPANY STATE
@@ -249,11 +249,11 @@ for all date fields. Never use placeholder dates.
 **Tone:** All three commands should be brief, direct, and actionable. No filler.
 No "Great! Let me help you with that." Just execute and report.
 
-**Session overlap:** If /pickup detects that the last /closed was not run
+**Session overlap:** If !!pickup detects that the last !!closed was not run
 (i.e., the last session notes show work but no commit was recorded for that
 session), surface it: "Looks like the last session wasn't closed. Want me to
-run /closed for it now before we start?"
+run !!closed for it now before we start?"
 
-**Git branch awareness:** /closed commits to whatever branch is currently
+**Git branch awareness:** !!closed commits to whatever branch is currently
 checked out. It does not create branches or open PRs — that's a separate
 workflow decision. If the user is on a feature branch, the commit goes there.
