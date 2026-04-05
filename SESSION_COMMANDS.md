@@ -110,6 +110,16 @@ state, deliver a standup-style briefing, and ask what to work on today.
 
 **When to use:** At the start of any working session, before doing anything else.
 
+**Note — Claude chat (non-Claude Code):** When running !!pickup outside of Claude Code
+(e.g., in Claude.ai chat), the working directory is not automatically set. You must
+specify the project path explicitly:
+
+```
+!!pickup C:\Users\rowem\projects\[project-folder]
+```
+
+Claude Code sessions infer the path from the working directory automatically.
+
 ---
 
 ### Execution Steps
