@@ -67,9 +67,29 @@ If no significant decisions were made, skip this step — do not add empty rows.
 If DECISIONS.md does not exist: create it with the standard header and the
 first entry being the session summary decision.
 
-**Step 4 — Commit and push**
+**Step 4 — Bubble up to company-level ACTIVE_PROJECT.md**
 
-Run:
+After updating the project files, sync the current project state to the company-wide dashboard:
+
+1. Extract from the updated project `ACTIVE_PROJECT.md`:
+   - Current phase
+   - Immediate next action
+   - Any blockers or risks
+
+2. Open `C:\Users\rowem\projects\company-context\ACTIVE_PROJECT.md`
+
+3. Find the projects table. Locate the row for the current project (match by project name):
+   - If the row exists: update the **Phase**, **Last Worked**, **Next Action**, and **Blockers** columns with today's date and the values extracted above
+   - If no row exists: add a new row for this project with all four columns populated
+
+4. Save the file.
+
+If `company-context/ACTIVE_PROJECT.md` cannot be found or contains no projects table,
+note it in the confirmation output and skip this step — do not fail the close.
+
+**Step 5 — Commit and push**
+
+**Project repo:**
 ```
 git add -A
 git commit -m "session: [one-line summary of what this session produced]"
@@ -85,7 +105,18 @@ If git push fails:
 If there are no changes to commit (working tree clean): skip the commit,
 note that no file changes occurred this session.
 
-**Step 5 — Confirm capture**
+**Company-context repo:**
+```
+cd C:\Users\rowem\projects\company-context
+git add ACTIVE_PROJECT.md
+git commit -m "sync: [project-name] session update [TODAY'S DATE]"
+git push
+```
+
+If git push fails for company-context: note it in the confirmation output
+and ask the user to push manually. Do not block the rest of the close.
+
+**Step 6 — Confirm capture**
 
 Output a brief confirmation in this format:
 
@@ -95,8 +126,11 @@ Session closed. Here's what was captured:
 ✓ Accomplished: [bullet list]
 ✓ Decisions logged: [count, or "none"]
 ✓ ACTIVE_PROJECT.md: updated
+✓ Company dashboard: updated (or "skipped — [reason]")
 ✓ Committed: [commit hash or "no changes"]
 ✓ Pushed: [yes / no — reason if no]
+✓ Company-context committed: [commit hash or "no changes / skipped"]
+✓ Company-context pushed: [yes / no — reason if no]
 
 Next session starts with: [the single next action]
 ```

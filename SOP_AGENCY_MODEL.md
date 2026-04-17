@@ -134,10 +134,12 @@ Full definitions: `C:\Users\rowem\projects\company-context\SESSION_COMMANDS.md`
 
 **What it does:**
 1. Scans the session conversation and extracts: accomplishments, decisions, deferred items, blockers, next action
-2. Updates `ACTIVE_PROJECT.md` — current state, next step, build sequencing, session notes entry
+2. Updates project `ACTIVE_PROJECT.md` — current state, next step, build sequencing, session notes entry
 3. Updates `DECISIONS.md` — appends any significant decisions made this session
-4. Runs `git add -A && git commit -m "session: [summary]" && git push`
-5. Outputs a confirmation with captured items and commit hash
+4. Updates `company-context/ACTIVE_PROJECT.md` — finds the row for this project in the projects table and updates phase, last-worked date, next action, and blockers; adds a new row if the project isn't listed yet
+5. Commits and pushes the project repo: `git add -A && git commit -m "session: [summary]" && git push`
+6. Commits and pushes company-context: `cd company-context && git add ACTIVE_PROJECT.md && git commit -m "sync: [project-name] session update [date]" && git push`
+7. Outputs a confirmation with captured items and both commit hashes
 
 **Why it matters:** This is the sync event. If you close without !!closed, the next session starts with stale state and the work done this session is not captured.
 
