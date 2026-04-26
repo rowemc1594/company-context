@@ -1,16 +1,17 @@
 # Company — active state
-Last updated: 2026-03-27
+Last updated: 2026-04-25
 
 ## Active projects
-| Project | Type | Phase | Next action |
-|---------|------|-------|-------------|
-| Product IDE | Internal product | Discovery | Define first value chunk |
+| Project | Type | Phase | Last Worked | Next Action | Blockers |
+|---------|------|-------|-------------|-------------|----------|
+| ProductIDE | Internal product | Framework build | 2026-04-25 | Define distribution strategy — standalone public repo vs. embedded; write distribution README; identify first external PM validator | None |
 
 ## This week's focus
-Setting up the agency operating model and bootstrapping Product IDE
-as the first project through the system.
+ProductIDE strategic pivot complete and change-controlled. PRODUCT.md v2.0 locked.
+Folder-based framework defined. Next: distribution strategy and first external validator.
 
 ## Open items
 - [ ] Finalize company name
 - [ ] Create GitHub organization for the agency
-- [ ] Complete Product IDE first value chunk definition
+- [ ] ProductIDE — distribution strategy decision
+- [ ] ProductIDE — identify first external PM to validate setup experience
